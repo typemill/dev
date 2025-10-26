@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-24'
+    modified: '2025-10-26'
+    time: 19-32-17
+    navtitle: homeNavi.twig
+    title: homeNavi.twig
+    description: 'The homeNavi.twig template defines a section that appears on the homepage. It is included by home.twig from the pages folder. This section lists the top-level'

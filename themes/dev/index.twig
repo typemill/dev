@@ -1,0 +1,55 @@
+{# The global layout for all pages #}
+{% extends '/layout.twig' %} 
+
+{# Short alias for your theme. If you create another theme or change the name, then just change it here #}
+{% set theme = settings.themes.dev %}
+
+{# Short alias for standard meta information from metatabs #}
+{% set meta = metatabs.meta %}
+
+{# Short alias for custom meta information in case you add your own metatab for the theme  #}
+{% set metaDev = metatabs.dev %}
+
+{# Page Title: Meta Title + Website Title #}
+{% block title %}{{ meta.title }}{% endblock %}
+
+{# Include different content pages #}
+{% block content %}
+	
+	{# Something for the homepage (optionally) #}
+	{% if home %}
+
+		{% include 'pages/home.twig' %}
+
+	{# You can also provide templates that admin can select in the interface #}
+	{% elseif metaDev.template == 'demotemplate' %}
+
+		{% include 'pages/demotemplate.twig' %}
+
+	{% elseif item.elementType == 'file' and ( item.thisChapter.contains == 'posts' or meta.template == 'post') %}
+		
+		{% include 'pages/post.twig' %}
+
+	{% elseif item.elementType == 'file' %}
+
+		{% include 'pages/file.twig' %}		
+
+	{% elseif item.elementType == 'folder' and metaDev.glossary %}
+
+		{% include 'pages/glossary.twig' %}
+	
+	{% elseif item.elementType == 'folder' and item.contains == 'pages' %}
+
+		{% include 'pages/folder.twig' %}
+
+	{% elseif item.elementType == 'folder' and item.contains == 'posts' %}
+
+		{% include 'pages/blog.twig' %}
+
+	{% else %}
+
+		{% include 'pages/file.twig' %}		
+
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-23'
+    modified: '2025-10-25'
+    time: 19-26-28
+    navtitle: demotemplate.twig
+    title: demotemplate.twig
+    description: 'The demotemplate.twig demonstrates, how you can add different templates for pages that the editor can choose in the editor interface. This construction is not'
+dev:
+    template: demotemplate

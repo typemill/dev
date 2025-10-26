@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-05-20'
+    time: 19-55-34
+    navtitle: partials
+    modified: '2025-10-22'
+    title: Partials
+    description: 'The partials folder contains several twig templates for elements like navigations,, breadcrumbs, footer, or header. Partials are usually included in the'

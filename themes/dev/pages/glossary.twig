@@ -1,0 +1,21 @@
+<div class="content w-100 w-70-l center pv3 ph4-l pt0-l lh-copy f5 fw3">
+
+	<h1>{{ title }}</h1>
+			
+	{{ content }}
+
+	{% set alphabet = 'ß' %}
+
+	<ul class="list pa0 flex-m flex-l flex-wrap tl justify-between">
+		{% for element in item.folderContent|sort((a, b) => a.name <=> b.name) %}
+			{% if element.name|first|upper != alphabet %}
+				{% set alphabet = element.name|first|upper %}
+				<h2>{{ alphabet }}</h2>
+			{% endif %}
+			<li class="w-100 pa3 pa0-l">
+				<a class="link relative dib w-100" href="{{ element.urlAbs }}">{{ element.name }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+	
+</div>

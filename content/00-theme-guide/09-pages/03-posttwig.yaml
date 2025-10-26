@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-23'
+    modified: '2025-10-23'
+    time: 18-28-04
+    navtitle: post.twig
+    title: post.twig
+    description: 'A post is a page inside a folder that is sorted by date. While pages have a two-digit number like "01-" as prefix and can be ordered by the editor with'

@@ -1,0 +1,13 @@
+cache/sitemap.xml
+cache/timer.yaml
+media/tmp/.gitkeep
+system/vendor
+data/navigation
+data/css
+data/security/securitylog.txt
+node_modules
+settings/settings.yaml
+settings/kixote.yaml
+settings/secrets.yaml
+settings/license.yaml
+settings/users

@@ -1,0 +1,25 @@
+<div class="mw8 center">
+
+	<nav class="topnavi w-100 pa3 pb0 flex justify-between relative bb b--light-gray">
+
+		{% include 'partials/header.twig' %}
+		
+		{% include 'partials/topNavigation.twig' %}
+
+	</nav>
+
+	{% include 'partials/widgets.twig' %}
+
+	<nav class="w-100 pv4">
+		{% include 'partials/breadcrumb.twig' %}
+	</nav>
+
+	<article class="w-100 pv4 ph4 ph5-l lh-copy f5 f4-l bg-light-gray">
+
+		<h1>{{ title }}</h1>
+
+		{{ content }}
+
+	</article>
+
+</div>

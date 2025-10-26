@@ -1,0 +1,11 @@
+meta:
+    navtitle: layout.twig
+    title: layout.twig
+    description: 'The layout.twig file contains the fundamental HTML structure of your website.  Suggested Layout Structure'
+    owner: trendschau
+    author: trendschau
+    modified: '2025-05-19'
+    created: '2025-05-06'
+    time: 20-04-12
+    hide: false
+    noindex: false

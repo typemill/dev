@@ -1,0 +1,80 @@
+name: Dev Theme
+version: 3.0.0
+description: A Starter-Kit for Theme Developers.
+author: Your Name
+homepage: https://yourhomepage
+license: MIT
+
+# Define some standard settings
+settings:
+  contentPosition: 1
+  naviPosition: 2
+
+
+# Define some readymades so admin can choose different presets with one click
+
+
+# Define configuration forms for the theme settings
+forms:
+  fields:
+
+    # Settings for the homepage
+    home:
+      type: fieldset
+      legend: 'Homepage'
+      fields:
+        contentPosition:
+          type: number
+          label: 'Position of Default Content Segment'
+          description: 'This segment will show the default markdown content for the homepage. Use 0 to disable this section.'
+          css: 'lg:w-full'
+        naviPosition:
+          type: number
+          label: 'Position of First Level Teasers'
+          description: 'A segment with teasers that show the first level elements of the navigation. Use 0 to disable the section.'
+          css: 'lg:w-full'
+
+    # Example settings to change the background color
+    fieldsetColors:
+      type: fieldset
+      legend: 'Colors'
+      fields:
+        bodyColorBackground:
+          type: text
+          label: 'BODY: Background Color'
+          placeholder: '#fff'
+          css: 'lg:w-half'
+        bodyColor:
+          type: text
+          label: 'BODY: Text Color'
+          placeholder: '#333'
+          css: 'lg:w-half'
+        linkColor:
+          type: text
+          label: 'BODY: Link Color'
+          placeholder: 'blue'
+          css: 'lg:w-half'
+
+
+# Define a meta tab for pages where admin can make page specific settings like choosing templates or a glossary view for folders
+metatabs:
+  dev:
+    fields:    
+      fieldsetfolder:
+        type: fieldset
+        legend: 'Dev Folder Settings'
+        fields:
+          glossary:
+            type: checkbox
+            label: 'Glossary List'
+            checkboxlabel: 'List pages or posts of this folder as glossary (only for folders)'
+      fieldsetDev:
+        type: fieldset
+        legend: 'Dev Settings'
+        fields:
+          template:
+            type: select
+            label: "Select a template"
+            options:
+              standard: 'Standard'
+              demotemplate: 'Demo Template'

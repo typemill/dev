@@ -1,0 +1,16 @@
+<header>
+	
+	<div class="logo">
+		<p>
+			<a class="link black no-underline flex items-center" href="{{ base_url }}" title="My Title">						
+				{% if logo %}
+                    <img class="mw2 mr2" src="{{ base_url }}/{{ logo }}" alt="Logo">
+				{% endif %}
+				{% if settings.title %}
+					<span class="f4 fw8">{{ settings.title }}</span>
+				{% endif %}
+			</a>
+		</p>
+	</div>
+
+</header>

@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-22'
+    modified: '2025-10-22'
+    time: 18-55-00
+    navtitle: breadcrumb.twig
+    title: breadcrumb.twig
+    description: 'A breadcrumb is a classical partial that can be included on nearly all pages. As a first segment you can include a link to the homepage with the base url'

@@ -1,0 +1,14 @@
+<div>
+
+	<a href="{{ base_url }}">{{ settings.title|title }}</a>
+
+	{% for crumb in breadcrumb %}
+		> 
+		{% if loop.last %}
+			{{ crumb.name|title }}
+		{% else %}
+			<a class="highlight" href="{{ crumb.urlRel }}">{{ crumb.name|title }}</a>
+		{% endif %}
+	{% endfor %}
+
+</div>

@@ -1,0 +1,41 @@
+# homeNavi.twig
+
+The `homeNavi.twig` template defines a section that appears on the homepage. It is included by `home.twig` from the `pages` folder. This section lists the top-level folders as boxes and displays the number of second-level articles inside each box:
+
+```
+<section class="mw8 center">
+
+    <ul class="list pl0 w-100 mw8 center flex-l flex-wrap justify-between">
+
+        {% for element in navigation %}
+
+            {% set item = getPageMeta(settings, element) %}
+
+            <li class="w-100 w-50-l pa3 mt3 mb3 ba b--light-gray bg-dark-gray dim">
+
+                <a class="link f-link flex-l white" href="{{ element.urlAbs }}">
+
+                    <div class="w-100 ml4-l">
+                        <header>
+                            <h3 class="f4">{{ item.meta.title }}</h3>
+                        </header>
+                        <p class="lh-copy">{{ item.meta.description }}</p>
+
+                        {% if element.elementType == 'folder' %}
+
+                            <p class="f6 light-gray">{{ element.folderContent|length }} items</p>
+
+                        {% endif %}
+
+                    </div>
+
+                </a>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+</section>
+```
+

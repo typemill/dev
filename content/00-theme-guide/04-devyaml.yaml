@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-05-20'
+    time: 18-55-05
+    navtitle: dev.yaml
+    modified: '2025-05-20'
+    title: dev.yaml
+    description: 'The dev.yaml file configures the theme and must have the same name as the theme folder. Basic Information'

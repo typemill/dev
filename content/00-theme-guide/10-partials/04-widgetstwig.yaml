@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-22'
+    modified: '2025-10-22'
+    time: 19-56-30
+    navtitle: widgets.twig
+    title: widgets.twig
+    description: 'Every theme must have a widgetized area. This is the main area where plugins can inject code, for example a search field or a language switch. The twig code'

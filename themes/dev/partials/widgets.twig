@@ -1,0 +1,11 @@
+<!-- You should add a widgetized area somewhere for search-plugin and other plugins -->
+
+{% if widgets %}
+	<div class="widgetcontainer">
+		{% for index,widget in widgets %}
+		<div id="{{ index }}">
+			{{ widget }}
+		</div>
+		{% endfor %}
+	</div>
+{% endif %}

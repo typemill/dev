@@ -1,0 +1,31 @@
+<div class="flex-l mw8-5 center">
+
+	<aside class="sidebar w-100 w-30-l pa3">
+
+		{% include 'partials/header.twig' %}
+
+		{% include 'partials/widgets.twig' %}
+		
+		{% include 'partials/navigation.twig' %}
+
+	</aside>
+
+	<article class="w-100 w-70-l pv4 ph4 ph5-l lh-copy f5 f4-l">
+
+		<nav>
+			{% include 'partials/breadcrumb.twig' %}
+		</nav>
+
+		<h1>{{ title }}</h1>
+
+		{{ content }}
+
+		{% if theme.nextpage %}
+
+			{% include 'partials/paging.twig' %}
+			
+		{% endif %}
+
+	</article>
+
+</div>

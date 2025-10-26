@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-23'
+    modified: '2025-10-23'
+    time: 18-00-50
+    navtitle: file.twig
+    title: file.twig
+    description: 'The file.twig renders a standard content page. It includes partials like the header, the widgets, and the navigation on the left side. On the right side it'

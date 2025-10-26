@@ -1,0 +1,92 @@
+<!-- Set variables for the paging of the post-list -->
+{% set pagesize = 9 %}
+{% set pages = ( item.folderContent|length / pagesize)|round(0, 'ceil') %}
+{% set currentpage = currentpage ? currentpage : 1 %}
+{% set currentposts = (currentpage - 1) * pagesize %}
+
+<div class="flex-l mw8-5 center">
+
+	<!-- aside with widget and navigation -->
+	<aside class="sidebar w-100 w-30-l pa3">
+
+		{% include 'partials/header.twig' %}
+
+		{% include 'partials/widgets.twig' %}
+		
+		{% include 'partials/navigation.twig' %}
+
+	</aside>
+
+	<!-- article with breadcrumb, title, content, paging (previous/next) -->
+	<article class="w-100 w-70-l pv4 ph4 ph5-l lh-copy f5 f4-l">
+
+		<nav>
+			{% include 'partials/breadcrumb.twig' %}
+		</nav>
+
+		<h1>{{ title }}</h1>
+
+		{{ content }}
+
+		{% if theme.nextpage %}
+
+			{% include 'partials/paging.twig' %}
+			
+		{% endif %}
+
+		<!-- List the containing posts of the folder (news/blog) -->
+		<ul class="list w-100 mw8 center f5 pl0 pv5">
+
+			{% for element in item.folderContent|slice(currentposts, pagesize) %}
+
+				{% set post = getPageMeta(settings, element) %}
+				{% set date = element.order[0:4] ~ '-' ~ element.order[4:2] ~ '-' ~ element.order[6:2] %}
+
+				<li class="w-100 pt4 pb4 bt bb b--light-gray mt-1">
+					<a class="link f-link flex-l black dim" href="{{ element.urlAbs }}">
+						
+						<div class="w-100 w5-l h4-l bg-light-gray flex items-center justify-center overflow-hidden">
+						    {% if post.meta.heroimage != '' %}
+						      <img class="h-100 w-100 object-cover" 
+						           src="{{ assets.image(post.meta.heroimage).resize(820,500).src() }}" 
+						           {% if post.meta.heroimagealt and subpagemeta.meta.heroimagealt != '' %}
+						           alt="{{ post.meta.heroimagealt }}" 
+						           {% endif %} />
+						    {% endif %}
+						</div>
+
+					  	<div class="w-100 ml4-l w-90-l">
+					    	<header>
+					        	<h3 class="f3 mt0-l mt3">{{ post.meta.title }}</h3>
+					    	</header>
+							<small class="f6"><time datetime="{{date}}">{{ date | date("d.m.Y") }}</time> | {{ post.meta.author | default(post.meta.owner) }}</small>
+					    	<p class="lh-copy">{{ post.meta.description }}</p>
+					  	</div>
+
+					</a>
+				</li>
+
+			{% endfor %}
+
+			<!-- add a paging for the posts -->
+			{% if pages > 1 %}
+				<div class="w-100 pa3 center">
+					<ul class="flex list pl0 justify-center">
+						{% for i in 1 .. pages %}
+							<li class="pa2 pa3-l ma1 ba dim">
+								{% if i == currentpage %}
+									{{i}}
+								{% else %}
+									<a class="page" href="{{ item.urlAbs }}/p/{{i}}">{{i}}</a>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+
+		</ul>
+
+	</article>
+
+</div>

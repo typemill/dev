@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-22'
+    modified: '2025-10-23'
+    time: 20-49-19
+    navtitle: paging.twig
+    title: paging.twig
+    description: 'The paging partial adds a forward and backward navigation to the next or previous item. It is included on all pages.'

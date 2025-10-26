@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-05-20'
+    time: 19-36-38
+    navtitle: css
+    modified: '2025-05-20'
+    title: css-folder
+    description: 'The css folder includes the Tachyons CSS library and a style.css file. Both stylesheets are included in the &lt;head&gt; section of your layout.twig. '

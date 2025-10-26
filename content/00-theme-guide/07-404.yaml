@@ -1,0 +1,11 @@
+meta:
+    navtitle: 404.twig
+    owner: trendschau
+    author: trendschau
+    modified: '2025-05-20'
+    created: '2025-05-06'
+    time: 20-04-19
+    hide: false
+    noindex: false
+    title: 404.twig
+    description: 'The 404.twig file in the root folder will be called if a page is not found. You typically want to extend the layout file and add a simple message like below.'

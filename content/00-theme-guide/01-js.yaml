@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-05-06'
+    time: 20-09-45
+    navtitle: js
+    modified: '2025-05-20'
+    title: js-folder
+    description: 'This folder is empty in the dev theme, but you can add your own JavaScript files or libraries here and include them in your layout.twig.'

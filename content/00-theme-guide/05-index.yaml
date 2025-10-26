@@ -1,0 +1,11 @@
+meta:
+    navtitle: index.twig
+    title: Index.twig
+    description: 'The index.twig file is the entry point for your Typemill theme. It acts as the main template, extending the global layout and including all necessary content'
+    owner: trendschau
+    author: trendschau
+    modified: '2025-05-19'
+    created: '2025-05-06'
+    time: 20-04-16
+    hide: false
+    noindex: false

@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-22'
+    modified: '2025-10-22'
+    time: 20-16-17
+    navtitle: blog.twig
+    title: blog.twig
+    description: 'The blog.twig template is quite complex, because it contains a list of posts with details of the post, and it contains a paging to show older posts. The list'

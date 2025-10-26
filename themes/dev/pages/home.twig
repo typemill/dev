@@ -1,0 +1,17 @@
+<!-- create an object with all elements of the homepage and their positions -->
+{% set home = { 
+	"homeContent" : theme.teaserPosition ?? 1,
+ 	"homeNavi" : theme.naviPosition ?? 2,
+	}
+%}
+
+<!-- sort the elements by position, loop over them and include them if position is not 0 -->
+{% for section,index in home|sort %}
+
+	{% if index > 0 %}
+
+		{% include 'home/' ~ section ~ '.twig' %}
+	
+	{% endif %}
+
+{% endfor %}

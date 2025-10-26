@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-23'
+    modified: '2025-10-23'
+    time: 18-16-30
+    navtitle: folder.twig
+    title: folder.twig
+    description: 'The folder.twig renders a content folder. A content folder in Typemill also has content (the index.md file) and has the same elements like the file.twig.'

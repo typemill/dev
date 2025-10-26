@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-23'
+    modified: '2025-10-23'
+    time: 18-28-18
+    navtitle: home.twig
+    title: home.twig
+    description: 'Home is a special construct for the homepage. Typemill is not a website builder and might feel a bit limited if you have a very design-orientated approach.'

@@ -1,0 +1,9 @@
+meta:
+    owner: trendschau
+    author: trendschau
+    created: '2025-10-24'
+    modified: '2025-10-24'
+    time: 19-24-09
+    navtitle: homeContent.twig
+    title: homeContent.twig
+    description: 'The homeContent.twig simply includes the content of the homepage with the title-tag and the content-tag:'
