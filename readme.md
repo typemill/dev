@@ -22,6 +22,7 @@ For full technical references, see the official documentation:
 ## How to Use
 
 1. **Clone this repository** to your local machine.  
-2. **Run it on a local server** (Apache preferred).  
-3. **Create your first user** via `/tm/login`.  
-4. **Start exploring** Browse the built-in website with explanations and experiment directly with the included Dev Theme to create something new.
+2. **Run composer update** to get the vendor folder.
+3. **Run it on a local server** (Apache preferred).  
+4. **Create your first user** via `/tm/login`.  
+5. **Start exploring** Browse the built-in website with explanations and experiment directly with the included Dev Theme to create something new.
