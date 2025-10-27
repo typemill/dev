@@ -12,17 +12,20 @@ You can explore how different templates (like `file.twig`, `folder.twig`, or `ho
 
 The **Demo Plugin** demonstrates the basic architecture of a Typemill plugin — including configuration, event hooks, and integration with the editor interface. The guide for the plugin is still in progress, but you can inspect the plugin folder to learn from the code directly.
 
+## How to Use
+
+1. **Clone this repository** to your local machine.  
+2. **Run composer update** to get the vendor folder.
+3. **Set edit rights** to the folders `cache`, `content`, `data`, `media`, `settings`
+3. **Run it on a local server** (Apache preferred).  
+4. **Create your first user** via `/tm/login`.  
+5. **Start exploring** 
+
+Browse the built-in website with explanations and experiment directly with the included Dev Theme to create something new.
+
 ## Further Reading
 
 For full technical references, see the official documentation:
 
 - [Theme Development Guide](https://docs.typemill.net/theme-developers)  
 - [Plugin Development Guide](https://docs.typemill.net/plugin-developers)
-
-## How to Use
-
-1. **Clone this repository** to your local machine.  
-2. **Run composer update** to get the vendor folder.
-3. **Run it on a local server** (Apache preferred).  
-4. **Create your first user** via `/tm/login`.  
-5. **Start exploring** Browse the built-in website with explanations and experiment directly with the included Dev Theme to create something new.
