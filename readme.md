@@ -2,6 +2,8 @@
 
 The **Typemill Dev Edition** is a development version of Typemill that includes a **Dev Theme** and a **Demo Plugin**. It’s designed as a hands-on learning environment for theme and plugin developers.
 
+[screenshot of the dev theme](dev-theme-1.png)
+
 ## Theme Guide
 
 The **Theme Guide** walks you through the structure of the Dev Theme. Each article in the guide corresponds to a file in the theme folder and provides detailed explanations, examples, and best practices for working with Twig templates and YAML configurations.
