@@ -2,7 +2,7 @@
 
 The **Typemill Dev Edition** is a development version of Typemill that includes a **Dev Theme** and a **Demo Plugin**. It’s designed as a hands-on learning environment for theme and plugin developers.
 
-[screenshot of the dev theme](dev-theme-1.png)
+![screenshot of the dev theme](/dev-theme-1.png)
 
 ## Theme Guide
 
