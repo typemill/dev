@@ -21,11 +21,15 @@
 
 		{% include 'pages/home.twig' %}
 
+	{# Show a special page for the project homepage #}
+	{% elseif project and ('/' ~ project == item.urlRelWoF) %}
+	
+		{% include 'pages/home.twig' %}
+
 	{# You can also provide templates that admin can select in the interface #}
 	{% elseif metaDev.template == 'demotemplate' %}
 
 		{% include 'pages/demotemplate.twig' %}
-
 	{% elseif item.elementType == 'file' and ( item.thisChapter.contains == 'posts' or meta.template == 'post') %}
 		
 		{% include 'pages/post.twig' %}
