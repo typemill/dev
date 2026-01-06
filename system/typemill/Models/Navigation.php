@@ -172,11 +172,11 @@ class Navigation extends Folder
 	{
 		if($this->checkProjectSettings($settings))
 		{
-			$projects =[];
+			$projects = [];
 			$projects[] = [
 				'id' 		=> $settings['baseprojectid'], 
 				'label' 	=> $settings['baseprojectlabel'],
-				'active' 	=> ($this->project == $settings['baseprojectid']) ? true : false,
+				'active' 	=> !$this->project ? true : false,
 				'base'		=> true
 			];
 
@@ -321,6 +321,13 @@ class Navigation extends Folder
 		}
 		
 		return $allowedsystemnavi;
+	}
+
+	public function clearAllNavigations()
+	{
+		$result = $this->storage->deleteContentFolderRecursive('navigation', $dataFolder = true);
+
+		return $result;
 	}
 
 	# use array ['extended' => true, 'draft' => true, 'live' => true] to clear files
@@ -588,6 +595,11 @@ class Navigation extends Folder
 		}
 
 		$firstLevelExtended = $this->getExtendedNavigation($urlinfo, $langattr, $itempath);
+
+		if(!$firstLevelExtended)
+		{
+			return [];
+		}
 
 		$extended = [];
 
@@ -1323,12 +1335,9 @@ class Navigation extends Folder
 		return $result;
 	}	
 
-
-	# NOT IN USE ANYMORE BUT KEEP IT
+	# In use in meta controller
 	public function getItemWithUrl($navigation, $url, $result = NULL)
 	{
-		die('getItemWithURL in navigation model not in use.');
-
 		foreach($navigation as $key => $item)
 		{
 			# set item active, needed to move item in navigation
