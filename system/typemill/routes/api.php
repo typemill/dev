@@ -97,14 +97,17 @@ $app->group('/api/v1', function (RouteCollectorProxy $group) use ($acl) {
 	$group->delete('/securitylog', ControllerApiGlobals::class . ':deleteSecurityLog')->setName('api.securitylog.delete')->add(new ApiAuthorization($acl, 'system', 'update')); # manager
 	$group->delete('/cache', ControllerApiGlobals::class . ':deleteCache')->setName('api.cache.delete')->add(new ApiAuthorization($acl, 'system', 'update')); # manager
 	$group->delete('/clearnavigation', ControllerApiGlobals::class . ':clearNavigation')->setName('api.navigation.clear')->add(new ApiAuthorization($acl, 'system', 'update')); # manager
+	$group->delete('/clearmultilang', ControllerApiGlobals::class . ':clearMultilang')->setName('api.multilang.clear')->add(new ApiAuthorization($acl, 'system', 'update')); # manager
 
 	# KIXOTE Remote Services
 	$group->get('/tokenstats', ControllerApiKixote::class . ':getTokenStats')->setName('api.kixote.tokenstats')->add(new ApiAuthorization($acl, 'mycontent', 'update')); # author
 	$group->post('/agreetoaiservice', ControllerApiKixote::class . ':agreeToAiService')->setName('api.kixote.serviceagreement')->add(new ApiAuthorization($acl, 'mycontent', 'update')); # author
 	$group->post('/prompt', ControllerApiKixote::class . ':prompt')->setName('api.kixote.prompt')->add(new ApiAuthorization($acl, 'mycontent', 'update')); # author
 	$group->post('/autotrans', ControllerApiKixote::class . ':autotrans')->setName('api.kixote.autotrans')->add(new ApiAuthorization($acl, 'mycontent', 'update')); # author
+	$group->put('/autotrans', ControllerApiKixote::class . ':autotransUpdate')->setName('api.kixote.autotransupdate')->add(new ApiAuthorization($acl, 'mycontent', 'update')); # author
 
 	# Multilang
+	$group->get('/multilangindex', ControllerApiMultilang::class . ':getMultilangIndex')->setName('api.multilangindex.get')->add(new ApiAuthorization($acl, 'content', 'read'));
 	$group->get('/multilang', ControllerApiMultilang::class . ':getMultilang')->setName('api.multilang.get')->add(new ApiAuthorization($acl, 'content', 'read'));
 	$group->post('/multilang', ControllerApiMultilang::class . ':createMultilang')->setName('api.multilang.create')->add(new ApiAuthorization($acl, 'content', 'read'));
 	$group->delete('/multilang', ControllerApiMultilang::class . ':deleteMultilang')->setName('api.multilang.delete')->add(new ApiAuthorization($acl, 'content', 'read'));

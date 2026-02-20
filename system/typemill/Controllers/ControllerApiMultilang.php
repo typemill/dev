@@ -24,6 +24,54 @@ class ControllerApiMultilang extends Controller
 	protected $langattr = false;
 
     # used for author environment (api based)
+	public function getMultilangIndex(Request $request, Response $response, $args)
+	{
+		$params 			= $request->getQueryParams();
+		
+		if(!$params['url'])
+		{
+			$response->getBody()->write(json_encode([
+				'message' => Translations::translate('pageid or url is missing'),
+			]));
+
+			return $response->withHeader('Content-Type', 'application/json')->withStatus(404);
+		}
+
+		$navigation             = new Navigation(); 
+		if(!$navigation->checkProjectSettings($this->settings) OR $this->settings['projects'] !== 'languages')
+		{
+			$response->getBody()->write(json_encode([
+				'message' => Translations::translate('multilanguage is not activated'),
+			]));
+
+			return $response->withHeader('Content-Type', 'application/json')->withStatus(404);
+		}
+        $navigation->setProject($this->settings, $params['url']);
+        $project 				= $navigation->getProject();
+
+        $multilang 				= new Multilang();
+		$multilangIndex         = $multilang->getMultilangIndex($navigation->getProject());
+        if(!$multilangIndex)
+        {
+        	$multilangIndex 	= $this->getFreshMultilangIndex($multilang);
+            if(!$multilangIndex)
+            {
+				$response->getBody()->write(json_encode([
+					'message' => Translations::translate('could not create multilangindex'),
+				]));
+
+				return $response->withHeader('Content-Type', 'application/json')->withStatus(404);            	
+            }
+        }
+
+		$response->getBody()->write(json_encode([
+			'multilangIndex' 			=> $multilangIndex, 
+		]));
+
+		return $response->withHeader('Content-Type', 'application/json');
+	}
+
+    # used for author environment (api based)
 	public function getMultilang(Request $request, Response $response, $args)
 	{
 		$params 			= $request->getQueryParams();
@@ -53,27 +101,8 @@ class ControllerApiMultilang extends Controller
 		$multilangIndex         = $multilang->getMultilangIndex($navigation->getProject());
         if(!$multilangIndex)
         {
-        	# create a fresh mulitlang index
-            $langattr               = $this->settings['langattr'];
-	        $urlinfo    			= $this->c->get('urlinfo');
-            $meta                   = new Meta();
-			$newnavigation          = new Navigation(); 
-            $draftNav               = $newnavigation->getFullDraftNavigation($urlinfo, $langattr);
-
-            $multilangIndex         = $multilang->generateMultilangBaseIndex($meta, $draftNav, $this->settings);
-
-            foreach($this->settings['projectinstances'] as $lang => $label)
-            {
-            	$newnavigation->setProject($this->settings, $lang);
-            	$draftNav 				= $newnavigation->getFullDraftNavigation($urlinfo, $langattr);
-	            $multilangIndex         = $multilang->addProjectToIndex($lang, $meta, $draftNav, $multilangIndex);
-            }
-
-            if($multilangIndex && is_array($multilangIndex))
-            {
-                $multilang->storeMultilangIndex($multilangIndex);
-            }
-            else
+        	$multilangIndex 	= $this->getFreshMultilangIndex($multilang);
+            if(!$multilangIndex)
             {
 				$response->getBody()->write(json_encode([
 					'message' => Translations::translate('could not create multilangindex'),
@@ -343,6 +372,34 @@ class ControllerApiMultilang extends Controller
 		]));
 
 		return $response->withHeader('Content-Type', 'application/json');        
+	}
+
+	private function getFreshMultilangIndex($multilang)
+	{
+    	# create a fresh mulitlang index
+        $langattr               = $this->settings['langattr'];
+        $urlinfo    			= $this->c->get('urlinfo');
+        $meta                   = new Meta();
+		$navigation          	= new Navigation(); 
+        $draftNav               = $navigation->getFullDraftNavigation($urlinfo, $langattr);
+
+        $multilangIndex         = $multilang->generateMultilangBaseIndex($meta, $draftNav, $this->settings);
+
+        foreach($this->settings['projectinstances'] as $lang => $label)
+        {
+        	$navigation->setProject($this->settings, $lang);
+        	$draftNav 				= $navigation->getFullDraftNavigation($urlinfo, $langattr);
+            $multilangIndex         = $multilang->addProjectToIndex($lang, $meta, $draftNav, $multilangIndex);
+        }
+
+        if($multilangIndex && is_array($multilangIndex))
+        {
+            $multilang->storeMultilangIndex($multilangIndex);
+
+            return $multilangIndex;
+        }
+
+        return false;
 	}
 
 	private function checkBaseFolder($lang)
